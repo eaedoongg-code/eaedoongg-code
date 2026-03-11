@@ -1,21 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EaeDoonGG | Portfolio</title>
+    <title>EaeDoonGG | Nexus 2026</title>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --bg-color: #1a1b26; /* Tokyo Night Dark */
-            --card-bg: #24283b;
+            --bg-color: #1a1b26; 
+            --card-bg: #212433;
             --accent-color: #7aa2f7;
+            --nexus-color: #bb9af7; 
             --text-main: #c0caf5;
             --text-dim: #9aa5ce;
-            --stats-bg: rgba(0, 0, 0, 0.2);
+            --stats-bg: rgba(0, 0, 0, 0.25);
         }
 
         * {
@@ -33,64 +34,62 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
         }
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             background: var(--card-bg);
-            border-radius: 24px;
-            padding: 40px 30px;
+            border-radius: 28px;
+            padding: 40px 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .profile-header {
-            margin-bottom: 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            z-index: 1;
         }
 
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 3px solid var(--accent-color);
             margin-bottom: 15px;
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(122, 162, 247, 0.2);
+            box-shadow: 0 0 25px rgba(122, 162, 247, 0.15);
         }
 
         h1 {
             font-size: 1.8rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
             margin-bottom: 5px;
+            background: linear-gradient(to right, #7aa2f7, #bb9af7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .username {
-            color: var(--accent-color);
+            color: var(--text-dim);
             font-size: 0.9rem;
-            font-weight: 400;
+            margin-bottom: 25px;
             display: block;
-            margin-bottom: 20px;
         }
 
-        /* Github Stats Image Rendering */
         .stats-container {
             background: var(--stats-bg);
-            border-radius: 15px;
-            padding: 10px;
-            margin-bottom: 30px;
+            border-radius: 18px;
+            padding: 8px;
+            margin-bottom: 25px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .stats-img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            border-radius: 12px;
         }
 
-        /* Links/Buttons */
         .links-grid {
             display: grid;
             gap: 12px;
@@ -100,19 +99,29 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             padding: 16px 20px;
-            border-radius: 12px;
+            border-radius: 14px;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .link-nexus {
+            border: 1px solid rgba(187, 154, 247, 0.3);
+            background: rgba(187, 154, 247, 0.03);
         }
 
         .link-card:hover {
             background: var(--accent-color);
             color: var(--bg-color);
-            transform: translateX(5px);
+            transform: scale(1.02);
+        }
+
+        .link-nexus:hover {
+            background: var(--nexus-color);
+            border-color: var(--nexus-color);
         }
 
         .link-content {
@@ -121,26 +130,21 @@
             gap: 12px;
         }
 
-        .link-card i {
-            width: 20px;
-            height: 20px;
-        }
-
         .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
+            margin-top: 35px;
+            font-size: 0.75rem;
             color: var(--text-dim);
+            letter-spacing: 1px;
         }
 
-        /* Efeito de brilho no fundo */
         .glow {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--accent-color);
-            filter: blur(150px);
-            opacity: 0.1;
-            z-index: -1;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+            filter: blur(100px);
+            opacity: 0.05;
+            z-index: 0;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -158,18 +162,25 @@
             <span class="username">@eaedoongg-code</span>
         </div>
 
-        <!-- GitHub Stats Dinâmico -->
         <div class="stats-container">
             <img src="https://github-readme-stats.vercel.app/api?username=eaedoongg-code&show_icons=true&theme=tokyonight" alt="GitHub Stats" class="stats-img">
         </div>
 
         <div class="links-grid">
+            <a href="https://eaedoonggnexus.lovable.app/chat" target="_blank" class="link-card link-nexus">
+                <div class="link-content">
+                    <i data-lucide="bot"></i>
+                    <span style="font-weight: 600;">Nexus AI Chat</span>
+                </div>
+                <i data-lucide="sparkles"></i>
+            </a>
+
             <a href="https://www.youtube.com/@eaedoongg" target="_blank" class="link-card">
                 <div class="link-content">
                     <i data-lucide="youtube"></i>
                     <span>YouTube</span>
                 </div>
-                <i data-lucide="chevron-right"></i>
+                <i data-lucide="external-link"></i>
             </a>
 
             <a href="https://x.com/EaeDoongg" target="_blank" class="link-card">
@@ -177,35 +188,25 @@
                     <i data-lucide="twitter"></i>
                     <span>Twitter / X</span>
                 </div>
-                <i data-lucide="chevron-right"></i>
+                <i data-lucide="external-link"></i>
             </a>
 
             <a href="mailto:eaedoongg@gmail.com" class="link-card">
                 <div class="link-content">
                     <i data-lucide="mail"></i>
-                    <span>E-mail</span>
+                    <span>E-mail Profissional</span>
                 </div>
-                <i data-lucide="chevron-right"></i>
-            </a>
-            
-            <a href="https://github.com/eaedoongg-code" target="_blank" class="link-card">
-                <div class="link-content">
-                    <i data-lucide="github"></i>
-                    <span>GitHub</span>
-                </div>
-                <i data-lucide="chevron-right"></i>
+                <i data-lucide="send"></i>
             </a>
         </div>
 
         <div class="footer">
-            &copy; 2026 • Desenvolvido por EaeDoonGG
+            &copy; 2026 • DESIGNED BY EAEDOONGG
         </div>
     </div>
 
     <script>
-        // Inicializa os ícones do Lucide
         lucide.createIcons();
     </script>
 </body>
-
 </html>
