@@ -1,4 +1,4 @@
-# 🌌 Perfil | EaeDoonGG
+# https://avatars.githubusercontent.com/u/258869226?v=4 Perfil | EaeDoonGG
 
 <div align="center">
   <h1>Desenvolvedor Full Stack</h1>
